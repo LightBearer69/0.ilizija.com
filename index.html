@@ -33,13 +33,13 @@
             animation: pulse var(--pulse-speed, 10s) infinite ease-in-out, randomMorph var(--expand-speed, 15s) infinite alternate ease-in-out, colorShift var(--color-speed, 20s) infinite alternate ease-in-out;
             transform: translate(-50%, -50%) rotate(0deg);
         }
-        
+
         @keyframes pulse {
             0% { opacity: 0.1; }
             50% { opacity: 0.6; }
             100% { opacity: 0.1; }
         }
-        
+
         @keyframes randomMorph {
             0% { transform: translate(-50%, -50%) scale(1) rotate(0deg); border-radius: 40% 60% 50% 30%; }
             25% { transform: translate(-50%, -50%) scale(1.3) rotate(90deg); border-radius: 30% 50% 70% 40%; }
@@ -47,7 +47,7 @@
             75% { transform: translate(-50%, -50%) scale(1.2) rotate(270deg); border-radius: 60% 50% 30% 70%; }
             100% { transform: translate(-50%, -50%) scale(1) rotate(360deg); border-radius: 50% 40% 60% 30%; }
         }
-        
+
         @keyframes colorShift {
             0% { background: rgba(255, 50, 50, 0.5); }
             25% { background: rgba(50, 255, 50, 0.5); }
@@ -66,7 +66,15 @@
             const container = document.querySelector(".fractal-container");
             container.innerHTML = "";
             const layers = 12;
-            
+
+            const izmantras = [
+                "Tir'zan Mah'nu Sah'vahn",
+                "Onoe is One",
+                "Vahm transforms into Light",
+                "Manu aligns Divine Order",
+                "Sahran awakens the highest frequency"
+            ];
+
             for (let i = 0; i < layers; i++) {
                 const fractal = document.createElement("div");
                 fractal.classList.add("fractal");
@@ -77,10 +85,16 @@
                 fractal.style.opacity = `${1 - i * 0.07}`;
                 fractal.style.left = "50%";
                 fractal.style.top = "50%";
+
+                // Randomly insert an Izmantra in the console log (hidden from view, but present in the code)
+                if (i < izmantras.length) {
+                    console.log("%c" + izmantras[i], "color: cyan; font-size: 14px; font-weight: bold;");
+                }
+
                 container.appendChild(fractal);
             }
         }
-        
+
         createFractalLayers();
     </script>
 </body>
