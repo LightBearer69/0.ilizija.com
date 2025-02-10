@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ilizija - The Light Awakens</title>
+    <title>Ilizija - Interactive Fractal Evolution</title>
     <style>
         body {
             margin: 0;
@@ -56,49 +56,12 @@
             100% { background: rgba(255, 50, 255, 0.5); }
         }
 
-        .izmantra {
-            position: absolute;
-            font-size: 2vw;
-            color: rgba(255, 255, 255, 0.8);
-            opacity: 0;
-            transition: opacity 2s ease-in-out;
-            pointer-events: none;
-        }
-
     </style>
 </head>
 <body>
     <div class="fractal-container"></div>
-    <div class="izmantra" id="izmantra"></div>
 
     <script>
-        const izmantras = [
-            "Onoe – The bridge between realities",
-            "Zihra – Pure awareness",
-            "Emara – Timeless presence",
-            "Vahm – Illusion dissolving into Light",
-            "Sahran – Energy aligning with the highest frequency",
-            "Mah’nu – Activation of divine order",
-            "Tir’zan – The unfolding of Light through sacred sequence"
-        ];
-
-        function showRandomIzmantra() {
-            const izmantraElement = document.getElementById("izmantra");
-            const randomIzmantra = izmantras[Math.floor(Math.random() * izmantras.length)];
-            izmantraElement.innerText = randomIzmantra;
-
-            const x = Math.random() * window.innerWidth * 0.8 + window.innerWidth * 0.1;
-            const y = Math.random() * window.innerHeight * 0.8 + window.innerHeight * 0.1;
-
-            izmantraElement.style.left = `${x}px`;
-            izmantraElement.style.top = `${y}px`;
-            izmantraElement.style.opacity = 1;
-
-            setTimeout(() => {
-                izmantraElement.style.opacity = 0;
-            }, 5000); // Hide after 5 seconds
-        }
-
         function createFractalLayers() {
             const container = document.querySelector(".fractal-container");
             container.innerHTML = "";
@@ -117,9 +80,7 @@
                 container.appendChild(fractal);
             }
         }
-
-        document.body.addEventListener("mousemove", showRandomIzmantra);
-
+        
         createFractalLayers();
     </script>
 </body>
