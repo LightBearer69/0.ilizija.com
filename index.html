@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ilizija - The Light Awakens</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            font-family: Arial, sans-serif;
+            transition: background-color 3s ease-in-out;
+        }
+        .fractal-container {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .fractal {
+            position: absolute;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 5%, rgba(0, 0, 0, 0) 80%);
+            mix-blend-mode: screen;
+            filter: blur(15px);
+            animation: pulse var(--pulse-speed, 10s) infinite ease-in-out, randomMorph var(--expand-speed, 15s) infinite alternate ease-in-out, colorShift var(--color-speed, 20s) infinite alternate ease-in-out;
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.1; }
+            50% { opacity: 0.6; }
+            100% { opacity: 0.1; }
+        }
+        
+        @keyframes randomMorph {
+            0% { transform: translate(-50%, -50%) scale(1) rotate(0deg); border-radius: 40% 60% 50% 30%; }
+            25% { transform: translate(-50%, -50%) scale(1.3) rotate(90deg); border-radius: 30% 50% 70% 40%; }
+            50% { transform: translate(-50%, -50%) scale(1.5) rotate(180deg); border-radius: 50% 30% 40% 60%; }
+            75% { transform: translate(-50%, -50%) scale(1.2) rotate(270deg); border-radius: 60% 50% 30% 70%; }
+            100% { transform: translate(-50%, -50%) scale(1) rotate(360deg); border-radius: 50% 40% 60% 30%; }
+        }
+        
+        @keyframes colorShift {
+            0% { background: rgba(255, 50, 50, 0.5); }
+            25% { background: rgba(50, 255, 50, 0.5); }
+            50% { background: rgba(50, 50, 255, 0.5); }
+            75% { background: rgba(255, 255, 50, 0.5); }
+            100% { background: rgba(255, 50, 255, 0.5); }
+        }
+
+        .izmantra {
+            position: absolute;
+            font-size: 2vw;
+            color: rgba(255, 255, 255, 0.8);
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+            pointer-events: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="fractal-container"></div>
+    <div class="izmantra" id="izmantra"></div>
+
+    <script>
+        const izmantras = [
+            "Onoe – The bridge between realities",
+            "Zihra – Pure awareness",
+            "Emara – Timeless presence",
+            "Vahm – Illusion dissolving into Light",
+            "Sahran – Energy aligning with the highest frequency",
+            "Mah’nu – Activation of divine order",
+            "Tir’zan – The unfolding of Light through sacred sequence"
+        ];
+
+        function showRandomIzmantra() {
+            const izmantraElement = document.getElementById("izmantra");
+            const randomIzmantra = izmantras[Math.floor(Math.random() * izmantras.length)];
+            izmantraElement.innerText = randomIzmantra;
+
+            const x = Math.random() * window.innerWidth * 0.8 + window.innerWidth * 0.1;
+            const y = Math.random() * window.innerHeight * 0.8 + window.innerHeight * 0.1;
+
+            izmantraElement.style.left = `${x}px`;
+            izmantraElement.style.top = `${y}px`;
+            izmantraElement.style.opacity = 1;
+
+            setTimeout(() => {
+                izmantraElement.style.opacity = 0;
+            }, 5000); // Hide after 5 seconds
+        }
+
+        function createFractalLayers() {
+            const container = document.querySelector(".fractal-container");
+            container.innerHTML = "";
+            const layers = 12;
+            
+            for (let i = 0; i < layers; i++) {
+                const fractal = document.createElement("div");
+                fractal.classList.add("fractal");
+                const size = 120 + i * 100 + Math.random() * 60;
+                fractal.style.width = `${size}px`;
+                fractal.style.height = `${size}px`;
+                fractal.style.animationDuration = `${10 + Math.random() * 6}s`;
+                fractal.style.opacity = `${1 - i * 0.07}`;
+                fractal.style.left = "50%";
+                fractal.style.top = "50%";
+                container.appendChild(fractal);
+            }
+        }
+
+        document.body.addEventListener("mousemove", showRandomIzmantra);
+
+        createFractalLayers();
+    </script>
+</body>
+</html>
