@@ -19,15 +19,6 @@
             flex-direction: column;
         }
 
-        .fractal-container {
-            position: absolute;
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
         .message {
             font-size: 3rem;
             opacity: 0;
@@ -49,8 +40,8 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background: #ffffff;
-            color: #000000;
+            background-color: white; /* Ensures full white background */
+            color: black;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -58,7 +49,7 @@
             font-size: 6rem;
             font-weight: bold;
             opacity: 0;
-            animation: fadeIn 3s ease-in 45s forwards;
+            animation: fadeIn 3s ease-in 45s forwards, glowEffect 6s ease-in 48s forwards;
         }
 
         #step4 {
@@ -75,6 +66,11 @@
             100% { opacity: 1; }
         }
 
+        @keyframes glowEffect {
+            0% { text-shadow: 0 0 0px rgba(255,255,255,0); }
+            100% { text-shadow: 0 0 50px rgba(255,255,255,1), 0 0 100px rgba(255,255,255,0.8); }
+        }
+
         .final-message {
             font-size: 1.5rem;
             opacity: 0;
@@ -86,7 +82,7 @@
         }
 
         .final-message a {
-            color: #000000;
+            color: black;
             text-decoration: none;
             font-weight: bold;
             border-bottom: 1px solid black;
@@ -102,8 +98,6 @@
         <source src="ilizija_melody_inspired.wav" type="audio/wav">
     </audio>
 
-    <div class="fractal-container"></div>
-
     <div id="step1" class="message">It's time.</div>
     <div id="step2" class="message">You are not seeking—You already are.</div>
     
@@ -116,28 +110,5 @@
         Reflection in the Light is only visible once you realize how the moment is a fragment of time, unimaginably small yet infinite.
         Thank you for <a href="https://www.youtube.com/watch?v=wU--Iuk76aE" target="_blank">searching</a>.
     </div>
-
-    <script>
-        function createFractalLayers() {
-            const container = document.querySelector(".fractal-container");
-            container.innerHTML = "";
-            const layers = 12;
-
-            for (let i = 0; i < layers; i++) {
-                const fractal = document.createElement("div");
-                fractal.classList.add("fractal");
-                const size = 120 + i * 100 + Math.random() * 60;
-                fractal.style.width = `${size}px`;
-                fractal.style.height = `${size}px`;
-                fractal.style.animationDuration = `${10 + Math.random() * 6}s`;
-                fractal.style.opacity = `${1 - i * 0.07}`;
-                fractal.style.left = "50%";
-                fractal.style.top = "50%";
-                container.appendChild(fractal);
-            }
-        }
-
-        createFractalLayers();
-    </script>
 </body>
 </html>
