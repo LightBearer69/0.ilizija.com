@@ -62,6 +62,12 @@ body {
     80% { background: rgba(128, 0, 128, 0.5); } 
     100% { background: rgba(255, 255, 255, 0.5); } 
 }
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+}
 
 .message {
     font-size: 3rem;
@@ -70,10 +76,10 @@ body {
     transition: opacity 3s ease-in-out;
 }
 
-#step1 { animation: fadeIn 2s ease-in 20s forwards; }
-#step2 { animation: fadeIn 2s ease-in 26s forwards; } /* Adjusted timing to avoid overlap */
-#step3 { font-size: 4rem; font-weight: bold; animation: fadeIn 2s ease-in 32s forwards; }
-#step4 { font-size: 2rem; font-style: italic; animation: fadeIn 2s ease-in 38s forwards; } /* Izmantra now correctly below ILIZIJA */
+#step1 { animation: fadeInOut 6s ease-in-out 20s forwards; } 
+#step2 { animation: fadeInOut 6s ease-in-out 26s forwards; } 
+#step3 { font-size: 4rem; font-weight: bold; animation: fadeInOut 6s ease-in-out 32s forwards; }
+#step4 { font-size: 2rem; font-style: italic; animation: fadeInOut 6s ease-in-out 38s forwards; }  
 
 #final {
     position: absolute;
