@@ -35,9 +35,15 @@
             transition: opacity 3s ease-in-out;
         }
 
-        #step1 { animation: fadeIn 2s ease-in 20s forwards; } /* "It's time" */
-        #step2 { animation: fadeIn 3s ease-in 30s forwards; } /* "You are not seeking..." */
-        #step4 { font-size: 2rem; font-style: italic; opacity: 0; animation: fadeIn 4s ease-in 50s forwards; } /* Tir'zan Mah'nu Sah'vahn under ILIZIJA */
+        #step1 {
+            animation: fadeIn 2s ease-in 20s forwards;
+            top: 30%;
+        } /* "It's time" - Centered */
+
+        #step2 {
+            animation: fadeIn 3s ease-in 30s forwards;
+            top: 40%;
+        } /* "You are not seeking..." - Positioned lower */
 
         #final {
             position: absolute;
@@ -54,6 +60,15 @@
             opacity: 0;
             animation: fadeIn 3s ease-in 45s forwards;
         }
+
+        #step4 {
+            font-size: 2rem;
+            font-style: italic;
+            opacity: 0;
+            animation: fadeIn 4s ease-in 50s forwards;
+            position: relative;
+            top: 10px;
+        } /* "Tir'zan Mah'nu Sah'vahn" - Positioned under ILIZIJA */
 
         @keyframes fadeIn {
             0% { opacity: 0; }
