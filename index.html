@@ -116,11 +116,13 @@ body {
     font-weight: 300;
     color: black;
     text-align: center;
-    max-width: 60%;  /* Prevents text from stretching too wide */
-    margin: 20px auto 10px auto;  /* Moves it up & keeps balance */
+    max-width: 60%;
+    margin: 20px auto 10px auto;
     position: relative;
-    top: -20px; /* Moves it slightly up */
+    top: -20px;
     line-height: 1.5;
+    opacity: 0; /* Hides it initially */
+    animation: fadeIn 3s ease-in 60s forwards; /* Appears after 60s */
 }
 
 .final-message a {
