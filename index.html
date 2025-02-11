@@ -186,15 +186,19 @@ body {
 
     </style>
 </head>
-<audio autoplay loop>
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+<audio id="bg-music" loop>
+    <source src="/meditation-space-olistik-sound-project-patrizio-yoga-12043.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
 </audio>
 
+<button id="play-button">🔊 Play Sound</button>
+
 <script>
-    // Unmute after a short delay
-    setTimeout(() => {
-        document.getElementById("bg-music").muted = false;
-    }, 2000);
+document.getElementById("play-button").addEventListener("click", function() {
+    const audio = document.getElementById("bg-music");
+    audio.play();
+    this.style.display = "none"; // Hide button after clicking
+});
 </script>
 
     <div class="fractal-container"></div>
