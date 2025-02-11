@@ -14,16 +14,13 @@
             height: 100vh;
             background-color: black;
             font-family: Arial, sans-serif;
-            transition: background-color 3s ease-in-out;
             text-align: center;
             flex-direction: column;
+            position: relative;
         }
 
         .fractal-container {
             position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
             width: 100vw;
             height: 100vh;
             display: flex;
@@ -33,50 +30,33 @@
 
         .fractal {
             position: absolute;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 5%, rgba(0, 0, 0, 0) 80%);
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 10%, rgba(0, 0, 0, 0) 70%);
             mix-blend-mode: screen;
-            filter: blur(15px);
-            animation: pulse 10s infinite ease-in-out, randomMorph 15s infinite alternate ease-in-out, colorShift 20s infinite alternate ease-in-out;
-            transform: translate(-50%, -50%) rotate(0deg);
+            filter: blur(50px);
+            animation: fadeInLight 10s infinite alternate ease-in-out;
         }
 
-        @keyframes pulse {
-            0% { opacity: 0.1; }
-            50% { opacity: 0.6; }
-            100% { opacity: 0.1; }
-        }
-
-        @keyframes randomMorph {
-            0% { transform: translate(-50%, -50%) scale(1) rotate(0deg); border-radius: 40% 60% 50% 30%; }
-            25% { transform: translate(-50%, -50%) scale(1.3) rotate(90deg); border-radius: 30% 50% 70% 40%; }
-            50% { transform: translate(-50%, -50%) scale(1.5) rotate(180deg); border-radius: 50% 30% 40% 60%; }
-            75% { transform: translate(-50%, -50%) scale(1.2) rotate(270deg); border-radius: 60% 50% 30% 70%; }
-            100% { transform: translate(-50%, -50%) scale(1) rotate(360deg); border-radius: 50% 40% 60% 30%; }
-        }
-
-        @keyframes colorShift {
-            0% { background: rgba(255, 50, 50, 0.5); } 
-            16% { background: rgba(255, 165, 0, 0.5); } 
-            32% { background: rgba(255, 255, 50, 0.5); } 
-            48% { background: rgba(50, 205, 50, 0.5); } 
-            64% { background: rgba(50, 50, 255, 0.5); } 
-            80% { background: rgba(128, 0, 128, 0.5); } 
-            100% { background: rgba(255, 255, 255, 0.5); } 
+        @keyframes fadeInLight {
+            0% { opacity: 0.2; }
+            100% { opacity: 0.7; }
         }
 
         .message {
             font-size: 3rem;
             opacity: 0;
-            position: relative;
             transition: opacity 3s ease-in-out;
-            -webkit-transition: opacity 3s ease-in-out;
-            margin: 10px 0;
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            color: white;
         }
 
-        #step1 { animation: fadeIn 2s ease-in 20s forwards; }
-        #step2 { animation: fadeIn 3s ease-in 28s forwards; }
-        #step3 { display: none; } /* Removed extra ILIZIJA */
-        #step4 { font-size: 2rem; font-style: italic; animation: fadeIn 3s ease-in 44s forwards; }
+        #step1 { animation: fadeIn 2s ease-in 10s forwards; }
+        #step2 { animation: fadeIn 3s ease-in 18s forwards; }
+        #step3 { display: none; } /* Removed duplicate ILIZIJA */
+        #step4 { font-size: 2rem; font-style: italic; animation: fadeIn 3s ease-in 28s forwards; }
 
         #final {
             width: 100%;
@@ -85,7 +65,7 @@
             font-size: 6rem;
             font-weight: bold;
             opacity: 0;
-            animation: fadeIn 3s ease-in 52s forwards, illuminateFull 3s ease-in 56s forwards;
+            animation: fadeIn 3s ease-in 38s forwards, illuminateFull 3s ease-in 42s forwards;
         }
 
         @keyframes fadeIn {
@@ -105,11 +85,12 @@
             bottom: 5%;
             text-align: center;
             width: 80%;
-            animation: fadeIn 3s ease-in 63s forwards;
+            color: black;
+            animation: fadeIn 3s ease-in 53s forwards;
         }
 
         .final-message a {
-            color: #000000;
+            color: black;
             text-decoration: none;
             font-weight: bold;
             border-bottom: 1px solid black;
@@ -139,7 +120,9 @@
         <source src="ilizija_melody_inspired.wav" type="audio/wav">
     </audio>
 
-    <div class="fractal-container"></div>
+    <div class="fractal-container">
+        <div class="fractal"></div>
+    </div>
 
     <div id="step1" class="message">It is time.</div>
     <div id="step2" class="message">You are not seeking—You already are.</div>
@@ -155,24 +138,5 @@
     <div class="play-music" onclick="document.getElementById('music').play(); this.style.display='none';">
         ▶ Play Music
     </div>
-
-    <script>
-        function createFractalLayers() {
-            const container = document.querySelector(".fractal-container");
-            container.innerHTML = "";
-            const layers = 12;
-
-            for (let i = 0; i < layers; i++) {
-                const fractal = document.createElement("div");
-                fractal.classList.add("fractal");
-                const size = 120 + i * 100 + Math.random() * 60;
-                fractal.style.width = `${size}px`;
-                fractal.style.height = `${size}px`;
-                container.appendChild(fractal);
-            }
-        }
-
-        createFractalLayers();
-    </script>
 </body>
 </html>
