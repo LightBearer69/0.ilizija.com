@@ -28,39 +28,6 @@
             align-items: center;
         }
 
-        .fractal {
-            position: absolute;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 5%, rgba(0, 0, 0, 0) 80%);
-            mix-blend-mode: screen;
-            filter: blur(15px);
-            animation: pulse 10s infinite ease-in-out, randomMorph 15s infinite alternate ease-in-out, colorShift 20s infinite alternate ease-in-out;
-            transform: translate(-50%, -50%) rotate(0deg);
-        }
-
-        @keyframes pulse {
-            0% { opacity: 0.1; }
-            50% { opacity: 0.6; }
-            100% { opacity: 0.1; }
-        }
-
-        @keyframes randomMorph {
-            0% { transform: translate(-50%, -50%) scale(1) rotate(0deg); border-radius: 40% 60% 50% 30%; }
-            25% { transform: translate(-50%, -50%) scale(1.3) rotate(90deg); border-radius: 30% 50% 70% 40%; }
-            50% { transform: translate(-50%, -50%) scale(1.5) rotate(180deg); border-radius: 50% 30% 40% 60%; }
-            75% { transform: translate(-50%, -50%) scale(1.2) rotate(270deg); border-radius: 60% 50% 30% 70%; }
-            100% { transform: translate(-50%, -50%) scale(1) rotate(360deg); border-radius: 50% 40% 60% 30%; }
-        }
-
-        @keyframes colorShift {
-            0% { background: rgba(255, 50, 50, 0.5); } 
-            16% { background: rgba(255, 165, 0, 0.5); } 
-            32% { background: rgba(255, 255, 50, 0.5); } 
-            48% { background: rgba(50, 205, 50, 0.5); } 
-            64% { background: rgba(50, 50, 255, 0.5); } 
-            80% { background: rgba(128, 0, 128, 0.5); } 
-            100% { background: rgba(255, 255, 255, 0.5); } 
-        }
-
         .message {
             font-size: 3rem;
             opacity: 0;
@@ -68,10 +35,9 @@
             transition: opacity 3s ease-in-out;
         }
 
-        #step1 { animation: fadeIn 2s ease-in 20s forwards; }
-        #step2 { animation: fadeIn 3s ease-in 28s forwards; } /* Adjusted for better spacing */
-        #step3 { font-size: 4rem; font-weight: bold; animation: fadeIn 3s ease-in 36s forwards; }
-        #step4 { font-size: 2rem; font-style: italic; animation: fadeIn 3s ease-in 44s forwards; } /* Izmantra correctly below ILIZIJA */
+        #step1 { animation: fadeIn 2s ease-in 20s forwards; } /* "It's time" */
+        #step2 { animation: fadeIn 3s ease-in 30s forwards; } /* "You are not seeking..." */
+        #step4 { font-size: 2rem; font-style: italic; opacity: 0; animation: fadeIn 4s ease-in 50s forwards; } /* Tir'zan Mah'nu Sah'vahn under ILIZIJA */
 
         #final {
             position: absolute;
@@ -82,25 +48,16 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             font-size: 6rem;
             font-weight: bold;
             opacity: 0;
-            animation: fadeIn 3s ease-in 52s forwards, illuminateFull 3s ease-in 56s forwards;
+            animation: fadeIn 3s ease-in 45s forwards;
         }
 
         @keyframes fadeIn {
             0% { opacity: 0; }
             100% { opacity: 1; }
-        }
-
-        @keyframes fadeOut {
-            0% { opacity: 1; }
-            100% { opacity: 0; }
-        }
-
-        @keyframes illuminateFull {
-            0% { background: #ffffff; color: #000000; }
-            100% { background: #ffffff; color: #000000; }
         }
 
         .final-message {
@@ -132,11 +89,12 @@
 
     <div class="fractal-container"></div>
 
-    <div id="step1" class="message">It is time.</div>
+    <div id="step1" class="message">It's time.</div>
     <div id="step2" class="message">You are not seeking—You already are.</div>
-    <div id="step3" class="message">ILIZIJA</div>
-    <div id="step4" class="message">Tir'zan Mah'nu Sah'vahn</div>
-    <div id="final">ILIZIJA</div>
+    
+    <div id="final">ILIZIJA
+        <div id="step4" class="message">Tir'zan Mah'nu Sah'vahn</div>
+    </div>
 
     <div class="final-message">
         I hope that at least one aspect of this experience has created the smallest spark in the form of curiosity, admiring the simplicity.
