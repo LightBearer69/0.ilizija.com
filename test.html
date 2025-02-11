@@ -17,6 +17,7 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     flex-direction: column;
+    transition: background-color 5s ease-in-out;
 }
 
 /* Fractal Background Effect */
@@ -27,19 +28,26 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: fractalFade 10s ease-in-out infinite alternate;
 }
 
 .fractal {
     position: absolute;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 10%, rgba(0, 0, 0, 0) 80%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 10%, rgba(0, 0, 0, 0) 80%);
     mix-blend-mode: screen;
     filter: blur(40px);
-    animation: fractalGlow 10s infinite alternate ease-in-out;
+    animation: fractalGlow 6s infinite alternate ease-in-out;
 }
 
+/* Fractal Animation */
 @keyframes fractalGlow {
-    0% { opacity: 0.1; transform: scale(1); }
-    100% { opacity: 0.6; transform: scale(1.2); }
+    0% { opacity: 0.2; transform: scale(1); }
+    100% { opacity: 0.7; transform: scale(1.3); }
+}
+
+@keyframes fractalFade {
+    0% { background: rgba(255, 255, 255, 0.1); }
+    100% { background: rgba(255, 255, 255, 0.4); }
 }
 
 /* Text Animations */
