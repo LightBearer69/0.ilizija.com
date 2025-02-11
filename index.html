@@ -201,17 +201,10 @@ body {
     font-weight: bold;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
-<audio id="bg-music" loop>
-    <source src="https://LightBerer.github.io/Ilizija/meditation-space-olistik-sound-project-patrizio-yoga-12043.mp3" type="audio/mpeg">
-</audio>
 
-<script>
-document.getElementById("play-button").addEventListener("click", function() {
-    const audio = document.getElementById("bg-music");
-    audio.play().catch(error => console.log(error)); // Catch autoplay errors
-    this.style.display = "none"; // Hide button after playing
-});
-</script>
+    <audio src="https://LightBerer.github.io/Ilizija/meditation-space-olistik-sound-project-patrizio-yoga-12043.mp3" controls>
+<p>If you are reading this, it is because your browser does not support the audio element.</p>
+</audio>
 
     <div class="fractal-container"></div>
 
