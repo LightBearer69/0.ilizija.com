@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,15 +52,6 @@ body {
     100% { transform: translate(-50%, -50%) scale(1) rotate(360deg); border-radius: 50% 40% 60% 30%; }
 }
 
-@keyframes colorShift {
-    0% { background: rgba(255, 50, 50, 0.5); } 
-    16% { background: rgba(255, 165, 0, 0.5); } 
-    32% { background: rgba(255, 255, 50, 0.5); } 
-    48% { background: rgba(50, 205, 50, 0.5); } 
-    64% { background: rgba(50, 50, 255, 0.5); } 
-    80% { background: rgba(128, 0, 128, 0.5); } 
-    100% { background: rgba(255, 255, 255, 0.5); } 
-}
 @keyframes fadeInOut {
     0% { opacity: 0; }
     10% { opacity: 1; }
@@ -104,30 +94,19 @@ body {
     100% { opacity: 1; }
 }
 
-@keyframes fadeOut {
-    0% { opacity: 1; }
-    100% { opacity: 0; }
-}
-
-@keyframes illuminateFull {
-    0% { background: #ffffff; color: #000000; }
-    100% { background: #ffffff; color: #000000; }
-}
-
 .final-message {
     font-size: 1rem;
     font-weight: 300;
     color: black;
     text-align: center;
     max-width: 60%;
-    margin: 40px auto 20px auto; /* Adjusted spacing */
     position: absolute;
     bottom: 5%; /* Moves it lower */
     left: 50%;
     transform: translateX(-50%);
     line-height: 1.5;
     opacity: 0; /* Initially hidden */
-    animation: fadeInStay 3s ease-in 65s forwards; /* FIXED */
+    animation: fadeInStay 3s ease-in 65s forwards;
 }
 
 @keyframes fadeInStay {
@@ -159,39 +138,13 @@ body {
     animation: fadeIn 3s ease-in 58s forwards;
 }
 
-#final {
-    width: 100%;
-    background: white;
-    color: black;
-    font-size: 6rem;
-    font-weight: bold;
-    opacity: 0;
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation: fadeIn 3s ease-in 50s forwards, illuminateFull 3s ease-in 54s forwards;
-}
-
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
-
-@keyframes illuminateFull {
-    0% { background: white; color: black; }
-    100% { background: white; color: black; }
-}
-
-    </style>
-</head>
-    #playButton {
+/* Play Button */
+#playButton {
     position: fixed;
-    bottom: 30px; /* Adjust the distance from the bottom */
+    bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 1000; /* Ensures it is above all other elements */
+    z-index: 1000;
     cursor: pointer;
     background: white;
     color: black;
@@ -202,28 +155,28 @@ body {
     font-weight: bold;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
+
+    </style>
+</head>
+<body>
+
+<!-- Background Music -->
 <audio id="bg-music" loop>
     <source src="https://LightBerer.github.io/Ilizija/meditation-space-olistik-sound-project-patrizio-yoga-12043.mp3" type="audio/mpeg">
 </audio>
 
-<button id="play-button">🔊 Play Sound</button>
+<!-- Play Sound Button -->
+<button id="playButton">🔊 Play Sound</button>
 
-<script>
-document.getElementById("play-button").addEventListener("click", function() {
-    const audio = document.getElementById("bg-music");
-    audio.play().catch(error => console.log(error)); // Catch autoplay errors
-    this.style.display = "none"; // Hide button after playing
-});
-</script>
+<!-- Main Content -->
+<div class="fractal-container"></div>
+<div id="step1" class="message">It is time.</div>
+<div id="step2" class="message">You are not seeking—You already are.</div>
+<div id="final" class="message">ILIZIJA</div>
+<div id="izmantra" class="izmantra-message">Tir'zan Mah'nu Sah'vahn</div>
 
-    <div class="fractal-container"></div>
-
-    <div id="step1" class="message">It is time.</div>
-    <div id="step2" class="message">You are not seeking—You already are.</div>
-    <div id="final" class="message">ILIZIJA</div>
-    <div id="izmantra" class="izmantra-message">Tir'zan Mah'nu Sah'vahn</div>
-
-    <div class="final-message">
+<!-- Final Message -->
+<div class="final-message">
     If even a single spark of curiosity has been ignited within you, then this experience has served its purpose. 
     Simplicity reveals itself only to those who are ready to see, just as Light reflects only when the mind is still. 
     The moment is a fragment of time—immeasurably small, yet infinite.  
@@ -231,46 +184,26 @@ document.getElementById("play-button").addEventListener("click", function() {
     Thank you for <a href="https://www.youtube.com/watch?v=wU--Iuk76aE" target="_blank">seeking</a>.
 </div>
 
-    <script>
-        function createFractalLayers() {
-            const container = document.querySelector(".fractal-container");
-            container.innerHTML = "";
-            const layers = 12;
+<!-- JavaScript -->
+<script>
+document.getElementById("playButton").addEventListener("click", function() {
+    const audio = document.getElementById("bg-music");
+    audio.play().catch(error => console.log(error)); // Catch autoplay errors
+    this.style.display = "none"; // Hide button after playing
+});
+</script>
 
-            for (let i = 0; i < layers; i++) {
-                const fractal = document.createElement("div");
-                fractal.classList.add("fractal");
-                const size = 120 + i * 100 + Math.random() * 60;
-                fractal.style.width = `${size}px`;
-                fractal.style.height = `${size}px`;
-                fractal.style.animationDuration = `${10 + Math.random() * 6}s`;
-                fractal.style.opacity = `${1 - i * 0.07}`;
-                fractal.style.left = "50%";
-                fractal.style.top = "50%";
-                container.appendChild(fractal);
-            }
-        }
-
-        createFractalLayers();
-    </script>
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
+<script>
+document.addEventListener("DOMContentLoaded", function() {
     const finalText = document.getElementById("final");
     const finalMessage = document.querySelector(".final-message");
 
     setTimeout(() => {
         finalMessage.style.top = (finalText.offsetTop + 180) + "px"; /* Moves message further down */
         finalMessage.style.opacity = "1"; /* Ensures it's visible */
-    }, 67000); /* Adjusted delay to ensure it appears properly */
+    }, 67000);
 });
 </script>
-    <script>
-    document.getElementById("playButton").addEventListener("click", function() {
-        let audio = new Audio("meditation-space-olistik-sound-project-patrizio-yoga-12043.mp3");
-        audio.loop = true; // Make it loop
-        audio.play();
-        this.style.display = "none"; // Hide button after playing
-    });
-</script>
+
 </body>
 </html>
