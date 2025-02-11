@@ -112,13 +112,15 @@ body {
 }
 
 .final-message {
-    font-size: 1.5rem;
-    opacity: 0;
-    position: absolute;
-    bottom: 5%;
+    font-size: 1rem;
+    font-weight: 300;
+    color: black;
     text-align: center;
-    width: 80%;
-    animation: fadeIn 3s ease-in 53s forwards;
+    max-width: 60%;  /* Prevents text from stretching too wide */
+    margin: 20px auto 10px auto;  /* Moves it up & keeps balance */
+    position: relative;
+    top: -20px; /* Moves it slightly up */
+    line-height: 1.5;
 }
 
 .final-message a {
@@ -178,10 +180,12 @@ body {
     <div id="izmantra" class="izmantra-message">Tir'zan Mah'nu Sah'vahn</div>
 
     <div class="final-message">
-        I hope that at least one aspect of this experience has created the smallest spark in the form of curiosity, admiring the simplicity.
-        Reflection in the Light is only visible once you realize how the moment is a fragment of time, unimaginably small yet infinite.
-        Thank you for <a href="https://www.youtube.com/watch?v=wU--Iuk76aE" target="_blank">searching</a>.
-    </div>
+    If even a single spark of curiosity has been ignited within you, then this experience has served its purpose. 
+    Simplicity reveals itself only to those who are ready to see, just as Light reflects only when the mind is still. 
+    The moment is a fragment of time—immeasurably small, yet infinite.  
+    <br><br>
+    Thank you for <a href="https://www.youtube.com/watch?v=wU--Iuk76aE" target="_blank">seeking</a>.
+</div>
 
     <script>
         function createFractalLayers() {
