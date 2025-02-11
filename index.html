@@ -131,6 +131,37 @@ body {
 .final-message a:hover {
     opacity: 0.7;
 }
+        #final {
+    width: 100%;
+    background: white;
+    color: black;
+    font-size: 6rem;
+    font-weight: bold;
+    opacity: 0;
+    text-align: center;
+    animation: fadeIn 3s ease-in 50s forwards, illuminateFull 3s ease-in 54s forwards;
+}
+
+#izmantra {
+    font-size: 2rem;
+    font-style: italic;
+    color: black;
+    opacity: 0;
+    position: relative;
+    top: 20px; /* Moves it slightly below ILIZIJA */
+    text-align: center;
+    animation: fadeIn 3s ease-in 56s forwards;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes illuminateFull {
+    0% { background: white; color: black; }
+    100% { background: white; color: black; }
+}
 
     </style>
 </head>
@@ -144,7 +175,7 @@ body {
     <div id="step1" class="message">It is time.</div>
     <div id="step2" class="message">You are not seeking—You already are.</div>
     <div id="final" class="message">ILIZIJA</div>
-    <div id="izmantra" class="message">Tir'zan Mah'nu Sah'vahn</div>
+    <div id="izmantra" class="izmantra-message">Tir'zan Mah'nu Sah'vahn</div>
 
     <div class="final-message">
         I hope that at least one aspect of this experience has created the smallest spark in the form of curiosity, admiring the simplicity.
