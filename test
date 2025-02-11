@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ilizija - The Awakening</title>
+    <style>
+        
+body {
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: black;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    flex-direction: column;
+}
+
+/* White Background FIX */
+#final {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 6rem;
+    font-weight: bold;
+    opacity: 0;
+    z-index: 9999;
+    animation: fadeIn 3s ease-in 50s forwards;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Izmantra FIX */
+#izmantra {
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: black;
+    opacity: 0;
+    position: absolute;
+    top: calc(55% + 50px);
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    animation: fadeIn 3s ease-in 58s forwards;
+}
+
+/* Final Message FIX */
+.final-message {
+    font-size: 1rem;
+    font-weight: 300;
+    color: black;
+    text-align: center;
+    max-width: 60%;
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    line-height: 1.5;
+    opacity: 0;
+    animation: fadeInStay 3s ease-in 65s forwards;
+}
+
+@keyframes fadeInStay {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Play Button FIX */
+#playButton {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    cursor: pointer;
+    background: white;
+    color: black;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+    </style>
+</head>
+<body>
+
+<!-- Music -->
+<audio id="bg-music" loop>
+    <source src="https://LightBerer.github.io/Ilizija/meditation-space-olistik-sound-project-patrizio-yoga-12043.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Play Button -->
+<button id="playButton">🔊 Play Sound</button>
+
+<!-- Main Content -->
+<div id="final">ILIZIJA</div>
+<div id="izmantra">Tir'zan Mah'nu Sah'vahn</div>
+
+<!-- Final Message -->
+<div class="final-message">
+    If even a single spark of curiosity has been ignited within you, then this experience has served its purpose. 
+    Simplicity reveals itself only to those who are ready to see, just as Light reflects only when the mind is still. 
+    The moment is a fragment of time—immeasurably small, yet infinite.  
+    <br><br>
+    Thank you for <a href="https://www.youtube.com/watch?v=wU--Iuk76aE" target="_blank">seeking</a>.
+</div>
+
+<!-- JavaScript -->
+<script>
+document.getElementById("playButton").addEventListener("click", function() {
+    const audio = document.getElementById("bg-music");
+    audio.play().catch(error => console.log(error)); 
+    this.style.display = "none"; // Hide button after playing
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const finalMessage = document.querySelector(".final-message");
+    setTimeout(() => {
+        finalMessage.style.bottom = "5%"; 
+        finalMessage.style.opacity = "1";
+    }, 67000);
+});
+</script>
+
+</body>
+</html>
