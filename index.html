@@ -15,53 +15,25 @@ body {
     height: 100vh;
     background-color: black;
     font-family: Arial, sans-serif;
-    transition: background-color 3s ease-in-out;
     text-align: center;
     flex-direction: column;
 }
 
-.fractal-container {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-@keyframes fadeInOut {
-    0% { opacity: 0; }
-    10% { opacity: 1; }
-    80% { opacity: 1; }
-    100% { opacity: 0; }
-}
-
-.message {
-    font-size: 3rem;
-    opacity: 0;
-    position: absolute;
-    transition: opacity 3s ease-in-out;
-}
-
-#step1 { animation: fadeInOut 6s ease-in-out 20s forwards; } 
-#step2 { animation: fadeInOut 6s ease-in-out 26s forwards; } 
-
-/* White Background Fix - Covers Everything */
+/* White Background FIX */
 #final {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100vw;
     height: 100vh;
     background: white;
     color: black;
-    font-size: 6rem;
-    font-weight: bold;
-    opacity: 0;
-    text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
+    font-size: 6rem;
+    font-weight: bold;
+    opacity: 0;
     z-index: 9999;
     animation: fadeIn 3s ease-in 50s forwards;
 }
@@ -71,21 +43,21 @@ body {
     100% { opacity: 1; }
 }
 
-/* Izmantra Correct Position */
+/* Izmantra FIX */
 #izmantra {
     font-size: 1.6rem;
     font-weight: 300;
     color: black;
     opacity: 0;
     position: absolute;
-    top: calc(50% + 80px);
+    top: calc(55% + 50px);
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
     animation: fadeIn 3s ease-in 58s forwards;
 }
 
-/* Final Message Correct Position */
+/* Final Message FIX */
 .final-message {
     font-size: 1rem;
     font-weight: 300;
@@ -106,7 +78,7 @@ body {
     100% { opacity: 1; }
 }
 
-/* Play Button Positioned at Bottom */
+/* Play Button FIX */
 #playButton {
     position: fixed;
     bottom: 30px;
@@ -128,20 +100,17 @@ body {
 </head>
 <body>
 
-<!-- Background Music -->
+<!-- Music -->
 <audio id="bg-music" loop>
     <source src="https://LightBerer.github.io/Ilizija/meditation-space-olistik-sound-project-patrizio-yoga-12043.mp3" type="audio/mpeg">
 </audio>
 
-<!-- Play Sound Button -->
+<!-- Play Button -->
 <button id="playButton">🔊 Play Sound</button>
 
 <!-- Main Content -->
-<div class="fractal-container"></div>
-<div id="step1" class="message">It is time.</div>
-<div id="step2" class="message">You are not seeking—You already are.</div>
-<div id="final" class="message">ILIZIJA</div>
-<div id="izmantra" class="izmantra-message">Tir'zan Mah'nu Sah'vahn</div>
+<div id="final">ILIZIJA</div>
+<div id="izmantra">Tir'zan Mah'nu Sah'vahn</div>
 
 <!-- Final Message -->
 <div class="final-message">
@@ -156,18 +125,14 @@ body {
 <script>
 document.getElementById("playButton").addEventListener("click", function() {
     const audio = document.getElementById("bg-music");
-    audio.play().catch(error => console.log(error)); // Catch autoplay errors
+    audio.play().catch(error => console.log(error)); 
     this.style.display = "none"; // Hide button after playing
 });
-</script>
 
-<script>
 document.addEventListener("DOMContentLoaded", function() {
-    const finalText = document.getElementById("final");
     const finalMessage = document.querySelector(".final-message");
-
     setTimeout(() => {
-        finalMessage.style.bottom = "5%"; /* Keeps message at a readable height */
+        finalMessage.style.bottom = "5%"; 
         finalMessage.style.opacity = "1";
     }, 67000);
 });
