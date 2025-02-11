@@ -218,5 +218,15 @@ body {
 
         createFractalLayers();
     </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const finalText = document.getElementById("final");
+        const finalMessage = document.querySelector(".final-message");
+
+        setTimeout(() => {
+            finalMessage.style.top = (finalText.offsetTop + 150) + "px"; /* Moves message further down */
+        }, 66000); /* Adjust position after ILIZIJA appears */
+    });
+</script>
 </body>
 </html>
