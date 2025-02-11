@@ -186,6 +186,22 @@ body {
 
     </style>
 </head>
+    #playButton {
+    position: fixed;
+    bottom: 30px; /* Adjust the distance from the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000; /* Ensures it is above all other elements */
+    cursor: pointer;
+    background: white;
+    color: black;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
 <audio id="bg-music" loop>
     <source src="https://LightBerer.github.io/Ilizija/meditation-space-olistik-sound-project-patrizio-yoga-12043.mp3" type="audio/mpeg">
 </audio>
@@ -247,6 +263,14 @@ document.getElementById("play-button").addEventListener("click", function() {
         finalMessage.style.opacity = "1"; /* Ensures it's visible */
     }, 67000); /* Adjusted delay to ensure it appears properly */
 });
+</script>
+    <script>
+    document.getElementById("playButton").addEventListener("click", function() {
+        let audio = new Audio("meditation-space-olistik-sound-project-patrizio-yoga-12043.mp3");
+        audio.loop = true; // Make it loop
+        audio.play();
+        this.style.display = "none"; // Hide button after playing
+    });
 </script>
 </body>
 </html>
