@@ -73,7 +73,7 @@ body {
 
 #final {
     width: 100vw;
-    height: 100vh; /* Ensures full screen coverage */
+    height: 100vh;
     background: white;
     color: black;
     font-size: 6rem;
@@ -83,9 +83,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed; /* Fixes it over everything */
+    position: fixed;
     top: 0;
     left: 0;
+    z-index: 9999; /* Ensures it appears on top */
     animation: fadeIn 3s ease-in 50s forwards;
 }
 
@@ -101,11 +102,11 @@ body {
     text-align: center;
     max-width: 60%;
     position: absolute;
-    bottom: 5%; /* Moves it lower */
+    bottom: 10%;
     left: 50%;
     transform: translateX(-50%);
     line-height: 1.5;
-    opacity: 0; /* Initially hidden */
+    opacity: 0;
     animation: fadeInStay 3s ease-in 65s forwards;
 }
 
@@ -127,11 +128,11 @@ body {
 
 #izmantra {
     font-size: 1.6rem; /* 20% smaller than 2rem */
-    font-weight: 300; /* Thinner font */
+    font-weight: 300;
     color: black;
     opacity: 0;
     position: absolute;
-    top: calc(50% + 55px); /* Ensures it appears below ILIZIJA */
+    top: calc(50% + 80px); /* Moves it further below ILIZIJA */
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -199,8 +200,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const finalMessage = document.querySelector(".final-message");
 
     setTimeout(() => {
-        finalMessage.style.top = (finalText.offsetTop + 180) + "px"; /* Moves message further down */
-        finalMessage.style.opacity = "1"; /* Ensures it's visible */
+        finalMessage.style.bottom = "5%"; /* Keeps message at a readable height */
+        finalMessage.style.opacity = "1";
     }, 67000);
 });
 </script>
