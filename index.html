@@ -116,13 +116,20 @@ body {
     font-weight: 300;
     color: black;
     text-align: center;
-    max-width: 30%;
-    margin: 10px auto; /* Adjusted margins for better positioning */
-    position: relative;
-    top: 200px; /* Moves it slightly up */
+    max-width: 60%;
+    margin: 40px auto 20px auto; /* Adjusted spacing */
+    position: absolute;
+    bottom: 5%; /* Moves it lower */
+    left: 50%;
+    transform: translateX(-50%);
     line-height: 1.5;
     opacity: 0; /* Initially hidden */
-    animation: fadeIn 3s ease-in 65s forwards; /* Appears AFTER izmantra */
+    animation: fadeInStay 3s ease-in 65s forwards; /* FIXED */
+}
+
+@keyframes fadeInStay {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 .final-message a {
