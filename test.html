@@ -19,7 +19,7 @@ body {
     flex-direction: column;
 }
 
-/* White Background FIX */
+/* White Background - Fix for Full Coverage */
 #final {
     position: fixed;
     top: 0;
@@ -38,12 +38,13 @@ body {
     animation: fadeIn 3s ease-in 50s forwards;
 }
 
+/* Fade In Effect */
 @keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
 }
 
-/* Izmantra FIX */
+/* Izmantra Correct Position */
 #izmantra {
     font-size: 1.6rem;
     font-weight: 300;
@@ -57,7 +58,7 @@ body {
     animation: fadeIn 3s ease-in 58s forwards;
 }
 
-/* Final Message FIX */
+/* Final Message Correct Position */
 .final-message {
     font-size: 1rem;
     font-weight: 300;
@@ -78,7 +79,7 @@ body {
     100% { opacity: 1; }
 }
 
-/* Play Button FIX */
+/* Play Button Positioned at Bottom */
 #playButton {
     position: fixed;
     bottom: 30px;
@@ -100,12 +101,12 @@ body {
 </head>
 <body>
 
-<!-- Music -->
+<!-- Background Music -->
 <audio id="bg-music" loop>
     <source src="https://LightBerer.github.io/Ilizija/meditation-space-olistik-sound-project-patrizio-yoga-12043.mp3" type="audio/mpeg">
 </audio>
 
-<!-- Play Button -->
+<!-- Play Sound Button -->
 <button id="playButton">🔊 Play Sound</button>
 
 <!-- Main Content -->
