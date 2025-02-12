@@ -8,8 +8,29 @@
 </head>
 <body>
     <h1>Language of Light</h1>
-    <p>Each symbol below reveals its meaning when clicked.</p>
+    <p>Click a symbol to reveal its meaning.</p>
+
+    <div class="symbol-container">
+        <div class="symbol" onclick="revealMeaning(this)">
+            ✶
+            <span class="meaning">Zihra - Pure Awareness</span>
+        </div>
+        <div class="symbol" onclick="revealMeaning(this)">
+            ⊶
+            <span class="meaning">Onoe - Connection</span>
+        </div>
+        <div class="symbol" onclick="revealMeaning(this)">
+            ◉
+            <span class="meaning">Emara - Being</span>
+        </div>
+    </div>
 
     <a href="index.html">← Back to Ilizija</a>
+
+    <script>
+        function revealMeaning(element) {
+            element.classList.toggle("glow");
+        }
+    </script>
 </body>
 </html>
